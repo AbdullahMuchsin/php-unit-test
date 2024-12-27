@@ -24,7 +24,7 @@ class CounterTest extends TestCase
         $counter->increment();
         $this->assertEquals(2, $counter->getCounter());
         $counter->increment();
-        self::assertEquals(5, $counter->getCounter());
+        self::assertEquals(3, $counter->getCounter());
         $counter->increment();
         Assert::assertEquals(4, $counter->getCounter());
     }
@@ -38,5 +38,23 @@ class CounterTest extends TestCase
 
         $counter->increment();
         self::assertEquals(1, $counter->getCounter());
+    }
+
+    public function testFirst(): Counter
+    {
+        $counter = new Counter();
+        $counter->increment();
+        Assert::assertEquals(1, $counter->getCounter());
+
+        return $counter;
+    }
+
+    /**
+     * @depends testFirst
+     */
+    public function testSecound(Counter $counter): void
+    {
+        $counter->increment();
+        Assert::assertEquals(2, $counter->getCounter());
     }
 }
