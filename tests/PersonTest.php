@@ -8,31 +8,38 @@ use PHPUnit\Framework\TestCase;
 
 class PersonTest extends TestCase
 {
+    private Person $person;
+
+    public function setUp(): void {}
+
+    /**
+     * @before
+     */
+    public function setPerson(): void
+    {
+        $this->person = new Person("Muchsin");
+    }
 
     public function testSuccess()
     {
-        $person = new Person("Muchsin");
-        Assert::assertEquals("Hai Budi, my name is Muchsin" . PHP_EOL, $person->sayHello("Budi"));
+        Assert::assertEquals("Hai Budi, my name is Muchsin" . PHP_EOL, $this->person->sayHello("Budi"));
     }
 
     public function testException()
     {
-        $person = new Person("Muchsin");
         $this->expectException(Exception::class);
-        $person->sayHello(null);
+        $this->person->sayHello(null);
     }
 
     public function testSuccessSayGoodBye()
     {
-        $person = new Person("Muchsin");
         $this->expectOutputString("Good bye Budi");
-        $person->sayGoodBye("Budi");
+        $this->person->sayGoodBye("Budi");
     }
 
     public function testExceptionSayGoodBye()
     {
-        $person = new Person("Muchsin");
         $this->expectException(Exception::class);
-        $person->sayGoodBye(null);
+        $this->person->sayGoodBye(null);
     }
 }
