@@ -4,6 +4,7 @@ namespace AbdullahMuchsin\Test;
 
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\CodeCoverage\Report\PHP;
 
 class CounterTest extends TestCase
 {
@@ -47,7 +48,7 @@ class CounterTest extends TestCase
      */
     public function increment()
     {
-
+        Assert::markTestSkipped("Kode masih dalam tahap pengembangan");
         $this->counter->increment();
         self::assertEquals(1, $this->counter->getCounter());
     }
@@ -80,5 +81,22 @@ class CounterTest extends TestCase
     public function after()
     {
         echo "After" . PHP_EOL;
+    }
+
+    /**
+     * @requires OSFAMILY Windows
+     * @requires PHP >= 7
+     */
+    public function testOnlyOnWindows()
+    {
+        Assert::assertEquals(true,  PHP_EOL . "Test Case only windows device" . PHP_EOL);
+    }
+
+    /**
+     * @requires OSFAMILY Darwin
+     */
+    public function testOnlyOnMacOs()
+    {
+        Assert::assertEquals(true, PHP_EOL . "Test Case only macOS device");
     }
 }
