@@ -10,6 +10,9 @@ class CounterStateTest extends TestCase
 
     private static Counter $counter;
 
+    /**
+     * @beforeClass
+     */
     public static function setUpBeforeClass(): void
     {
         self::$counter = new Counter();
@@ -32,6 +35,6 @@ class CounterStateTest extends TestCase
      */
     public static function afterClass()
     {
-        echo "Akhir dari test case" . PHP_EOL;
+        echo PHP_EOL. "Akhir dari test case" . PHP_EOL;
     }
 }
