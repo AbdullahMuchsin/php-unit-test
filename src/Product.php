@@ -52,5 +52,4 @@ class Product
     {
         return $this->quantity;
     }
-
 }
