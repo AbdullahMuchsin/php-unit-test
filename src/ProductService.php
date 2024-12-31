@@ -38,6 +38,6 @@ class ProductService
             throw new Exception("Product not found");
         }
 
-        return $this->productRepository->delete($product);
+        $this->productRepository->delete($product);
     }
 }
