@@ -87,13 +87,11 @@ class ProductServiceTest extends TestCase
         $productInDB->setName("Andi");
 
         $this->productRepository->method("findById")->willReturn($productInDB);
-        $this->productRepository->method("save")->willReturnArgument(0);
 
         $product = new Product();
         $product->setId("1");
         $product->setId("Andi");
 
         $this->productService->register($product);
-
     }
 }
