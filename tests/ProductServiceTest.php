@@ -94,4 +94,25 @@ class ProductServiceTest extends TestCase
 
         $this->productService->register($product);
     }
+
+    public function testDeleteSuccess()
+    {
+
+        $product = new Product();
+        $product->setId("1");
+
+        $this->productRepository->method("findById")->willReturn($product);
+
+        $this->productService->delete("1");
+        Assert::assertEquals(true, "Success delete");
+    }
+
+    public function testDeleteException()
+    {
+        $this->expectException(Exception::class);
+
+        $this->productRepository->method("findById")->willReturn(null);
+
+        $this->productService->delete("1");
+    }
 }
