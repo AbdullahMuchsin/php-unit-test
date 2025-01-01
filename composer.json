@@ -23,5 +23,8 @@
     "psr-4": {
       "AbdullahMuchsin\\Test\\": "tests/"
     }
+  },
+  "scripts": {
+    "test": "phpunit --configuration phpunit.xml"
   }
 }

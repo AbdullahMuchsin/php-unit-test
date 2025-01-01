@@ -1,5 +1,11 @@
 <phpunit colors="true" stopOnError="true" verbose="true">
     <testsuites>
+        <testsuite name="product">
+            <directory>tests</directory>
+        </testsuite>
+        <testsuite name="counter">
+            <directory>tests</directory>
+        </testsuite>
         <testsuite name="all">
             <directory>tests</directory>
         </testsuite>
