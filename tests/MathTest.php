@@ -13,7 +13,7 @@ class MathTest extends TestCase
         Assert::assertEquals(10, Math::sum([2, 2, 2, 2, 2]));
         Assert::assertEquals(30, Math::sum([10, 10, 10]));
         Assert::assertEquals(15, Math::sum([10, 5]));
-        Assert::assertEquals(03, Math::sum([]));
+        Assert::assertEquals(0, Math::sum([]));
         Assert::assertEquals(2, Math::sum([2]));
     }
 
