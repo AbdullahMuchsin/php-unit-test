@@ -1,10 +1,12 @@
 <phpunit colors="true" stopOnError="true" verbose="true">
     <testsuites>
         <testsuite name="product">
-            <directory>tests</directory>
+            <directory>tests/ProductServiceTest.php</directory>
+            <directory>tests/ProductServiceMockTest.php</directory>
         </testsuite>
         <testsuite name="counter">
-            <directory>tests</directory>
+            <directory>tests/CounterTest.php</directory>
+            <directory>tests/CounterStateTest.php</directory>
         </testsuite>
         <testsuite name="all">
             <directory>tests</directory>
